@@ -1,16 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ming — AI Automation Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Ming — AI automation for small businesses. Live demos, integrations, and workflow engineering." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="ming-ai-automation-favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <title>Ming — AI Automation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="ming-ai-automation-favicon.png" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
+<body>
   <!-- NAV -->
   <nav class="nav" aria-label="Primary">
     <div class="nav-inner">
@@ -31,129 +31,66 @@
   </nav>
 
   <!-- HERO -->
-  <header id="home" class="hero" role="banner">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <h1 class="hero-title">Ming — AI Automation</h1>
-        <p class="tagline">I help small businesses identify, set up, and integrate AI automation tools that save hours every week.</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#projects">View Live Demos</a>
-          <a class="btn ghost" href="#contact">Contact Me</a>
-        </div>
-      </div>
-
-      <div class="hero-preview" aria-hidden="false">
-        <div class="laptop">
-          <div class="laptop-top" aria-hidden="true"></div>
-          <div class="laptop-screen">
-            <!-- LIVE EMBED: Restaurant Demo -->
-            <iframe src="https://the-ming-ai-automation.github.io/Restaurant-Demo/" title="Restaurant Demo Live Preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
-          </div>
-          <div class="laptop-footer" aria-hidden="true"></div>
-        </div>
-        <div class="preview-actions">
-          <a class="btn small" href="https://the-ming-ai-automation.github.io/Restaurant-Demo/" target="_blank" rel="noopener noreferrer">Open Demo in New Tab</a>
-        </div>
-      </div>
+  <header id="home" class="hero">
+    <div class="hero-content">
+      <h1>AI Automation for Small Businesses</h1>
+      <p>Integrations. Demos. Workflow engineering — all in one seamless flow.</p>
+      <a href="#demo" class="cta-btn">See Demo</a>
     </div>
   </header>
 
-  <!-- 3D DEMO MOCKUP SECTION -->
-  <section id="demo" class="demo-section">
+  <!-- DEMO MOCKUP SECTION -->
+  <section class="demo-section" id="demo">
     <div class="demo-content">
       <div class="laptop-3d" data-animate>
         <div class="screen">
-          <img id="demo-slides" src="vapi.png" alt="Automation Workflow Preview" />
+          <img id="demo-slides" src="vapi.png" alt="Automation Demo Preview" />
         </div>
       </div>
       <div class="demo-text">
         <h2>See It in Action</h2>
-        <p>Experience how <strong>Vapi</strong>, <strong>Zapier</strong>, and <strong>Tidio</strong> work together — creating a smooth customer flow from inquiry to confirmed booking, even after business hours.</p>
-        <a href="https://the-ming-ai-automation.github.io/Restaurant-Demo/" target="_blank" class="btn primary">View Live Demo</a>
+        <p>Experience how <strong>Vapi</strong>, <strong>Zapier</strong>, and <strong>Tidio</strong> work together — creating a seamless customer flow from inquiry to booking.</p>
+        <a href="https://the-ming-ai-automation.github.io/Restaurant-Demo/" target="_blank" class="cta-btn">View Live Demo</a>
       </div>
     </div>
   </section>
 
-  <!-- MAIN -->
-  <main>
-    <!-- PROJECT -->
-    <section id="projects" class="container" aria-labelledby="projects-heading">
-      <h2 id="projects-heading" class="section-title">Featured Project — Restaurant AI Demo</h2>
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <p>More live demos and case studies coming soon.</p>
+  </section>
 
-      <article class="project-card">
-        <h3>Project Overview</h3>
-        <p>This live, hosted demo (GitHub Pages) demonstrates how a small restaurant can use AI-driven automations to handle reservations, customer communication, and backend workflows — all integrated into one maintainable system.</p>
-
-        <h4>Key Integrations</h4>
-        <ul class="bullets">
-          <li><strong>Tidio Chatbot</strong> — real-time engagement and conversational capture.</li>
-          <li><strong>Vapi</strong> — AI voice agent designed to handle after-hours calls and automate customer support interactions.</li>
-          <li><strong>Zapier</strong> — routes events to Google Calendar, Sheets, and email notifications.</li>
-        </ul>
-
-        <h4>Why this matters</h4>
-        <p>The strength of this demo is that these tools <strong>coexist</strong>: Tidio handles conversational UI, Vapi ensures structured inputs, and Zapier reliably automates backend actions. That reduces manual work and improves customer experience.</p>
-
-        <div class="project-cta">
-          <a class="btn primary" href="https://the-ming-ai-automation.github.io/Restaurant-Demo/" target="_blank" rel="noopener noreferrer">View Live Demo</a>
-        </div>
-      </article>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section" aria-labelledby="contact-heading">
-      <h2 id="contact-heading" class="section-title">Let's Connect</h2>
-      <p class="contact-intro">If you want to reduce manual tasks, connect your apps, or add AI-driven workflows — tell me a bit about your needs below. I aim to respond within <strong>24 hours</strong> to schedule a quick 15-minute intro.</p>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Email</h3>
-          <p><a href="mailto:Themingaiautomation@gmail.com">Themingaiautomation@gmail.com</a></p>
-        </div>
-
-        <div class="contact-card form-card">
-          <h3>Quick Inquiry</h3>
-          <p class="form-desc">Share a few details and I’ll get back to you with practical next steps.</p>
-
-          <!-- YOUR GOOGLE FORM EMBED -->
-          <div class="form-frame">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScV1vVE0ihH2Rw2RspwTVDhiZX8r9PoK6lIW67gLtrbQWcFmw/viewform?embedded=true" title="Contact – Ming AI Automation" frameborder="0" marginheight="0" marginwidth="0" loading="lazy"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Let's build your automation system — together.</p>
+    <a href="mailto:mingautomation@gmail.com" class="cta-btn">Get in Touch</a>
+  </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <p>© 2025 Ming AI Automation — Built with purpose. Hosted on GitHub Pages.</p>
-    </div>
+    <p>© 2025 Ming — AI Automation Specialist</p>
   </footer>
 
+  <!-- SLIDESHOW SCRIPT -->
   <script>
-    // Auto-slide mockup images
     const slides = ["vapi.png", "zapier.png", "tidio.png"];
     let index = 0;
-    const img = document.getElementById("demo-slides");
 
     setInterval(() => {
-      img.style.opacity = 0;
-      setTimeout(() => {
-        index = (index + 1) % slides.length;
-        img.src = slides[index];
-        img.style.opacity = 1;
-      }, 500);
+      index = (index + 1) % slides.length;
+      document.getElementById("demo-slides").src = slides[index];
     }, 4000);
 
-    // Scroll animation
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
       });
     });
     document.querySelectorAll("[data-animate]").forEach(el => observer.observe(el));
   </script>
-
 </body>
 </html>
