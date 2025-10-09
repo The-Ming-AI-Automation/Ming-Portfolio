@@ -44,6 +44,7 @@
     <div class="demo-content">
       <div class="laptop-3d" data-animate>
         <div class="screen">
+          <div class="reflection"></div>
           <img id="demo-slides" src="vapi.png" alt="Automation Demo Preview" />
         </div>
       </div>
@@ -85,9 +86,7 @@
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("visible");
       });
     });
     document.querySelectorAll("[data-animate]").forEach(el => observer.observe(el));
