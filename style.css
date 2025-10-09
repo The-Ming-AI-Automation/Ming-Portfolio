@@ -88,13 +88,50 @@ a {
 
 /* HERO */
 .hero {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: radial-gradient(circle at top, #10121a, #0b0c10 70%);
   text-align: center;
   padding: 0 10%;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #10121a, #0b0c10 70%);
+}
+
+/* Hero Overlay Background */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-background iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: brightness(0.35) blur(1px);
+  pointer-events: none; /* keeps text/buttons clickable */
+}
+
+.hero-background .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(11,12,16,0.6), rgba(11,12,16,0.6));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
 }
 
 .hero h1 {
