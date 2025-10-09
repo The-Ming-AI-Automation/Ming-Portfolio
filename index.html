@@ -58,6 +58,22 @@
     </div>
   </header>
 
+  <!-- 3D DEMO MOCKUP SECTION -->
+  <section id="demo" class="demo-section">
+    <div class="demo-content">
+      <div class="laptop-3d" data-animate>
+        <div class="screen">
+          <img id="demo-slides" src="vapi.png" alt="Automation Workflow Preview" />
+        </div>
+      </div>
+      <div class="demo-text">
+        <h2>See It in Action</h2>
+        <p>Experience how <strong>Vapi</strong>, <strong>Zapier</strong>, and <strong>Tidio</strong> work together — creating a smooth customer flow from inquiry to confirmed booking, even after business hours.</p>
+        <a href="https://the-ming-ai-automation.github.io/Restaurant-Demo/" target="_blank" class="btn primary">View Live Demo</a>
+      </div>
+    </div>
+  </section>
+
   <!-- MAIN -->
   <main>
     <!-- PROJECT -->
@@ -76,7 +92,7 @@
         </ul>
 
         <h4>Why this matters</h4>
-        <p>The strength of this demo is that these tools <strong>coexist</strong>: Tidio handles conversational UI, Vipo ensures structured inputs, and Zapier reliably automates backend actions. That reduces manual work and improves customer experience.</p>
+        <p>The strength of this demo is that these tools <strong>coexist</strong>: Tidio handles conversational UI, Vapi ensures structured inputs, and Zapier reliably automates backend actions. That reduces manual work and improves customer experience.</p>
 
         <div class="project-cta">
           <a class="btn primary" href="https://the-ming-ai-automation.github.io/Restaurant-Demo/" target="_blank" rel="noopener noreferrer">View Live Demo</a>
@@ -99,7 +115,7 @@
           <h3>Quick Inquiry</h3>
           <p class="form-desc">Share a few details and I’ll get back to you with practical next steps.</p>
 
-          <!-- YOUR GOOGLE FORM EMBED (you provided) -->
+          <!-- YOUR GOOGLE FORM EMBED -->
           <div class="form-frame">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScV1vVE0ihH2Rw2RspwTVDhiZX8r9PoK6lIW67gLtrbQWcFmw/viewform?embedded=true" title="Contact – Ming AI Automation" frameborder="0" marginheight="0" marginwidth="0" loading="lazy"></iframe>
           </div>
@@ -114,6 +130,30 @@
       <p>© 2025 Ming AI Automation — Built with purpose. Hosted on GitHub Pages.</p>
     </div>
   </footer>
+
+  <script>
+    // Auto-slide mockup images
+    const slides = ["vapi.png", "zapier.png", "tidio.png"];
+    let index = 0;
+    const img = document.getElementById("demo-slides");
+
+    setInterval(() => {
+      img.style.opacity = 0;
+      setTimeout(() => {
+        index = (index + 1) % slides.length;
+        img.src = slides[index];
+        img.style.opacity = 1;
+      }, 500);
+    }, 4000);
+
+    // Scroll animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    });
+    document.querySelectorAll("[data-animate]").forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
