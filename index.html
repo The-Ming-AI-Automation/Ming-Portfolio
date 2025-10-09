@@ -71,32 +71,44 @@
     <p>© 2025 Ming — AI Automation Specialist</p>
   </footer>
 
-  <!-- PARALLAX + INTERACTIVE TILT SCRIPT -->
+  <!-- PARALLAX + INTERACTIVE TILT SCRIPT (Desktop + Mobile) -->
   <script>
     const floatingDemo = document.querySelector('.floating-3d');
+    if (floatingDemo) {
+      // Desktop scroll parallax
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const offset = scrollTop * 0.15;
+        floatingDemo.style.transform = `translateY(${-offset}px) rotateX(2deg) rotateY(1deg)`;
+      });
 
-    // Scroll parallax
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset;
-      const offset = scrollTop * 0.15;
-      floatingDemo.style.transform = `translateY(${-offset}px) rotateX(2deg) rotateY(1deg)`;
-    });
+      // Desktop hover tilt
+      floatingDemo.addEventListener('mousemove', (e) => {
+        const rect = floatingDemo.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * 5;
+        const rotateY = ((x - centerX) / centerX) * 5;
+        floatingDemo.style.transform = `translateY(-8px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+      });
 
-    // Interactive tilt on hover
-    floatingDemo.addEventListener('mousemove', (e) => {
-      const rect = floatingDemo.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * 5;
-      const rotateY = ((x - centerX) / centerX) * 5;
-      floatingDemo.style.transform = `translateY(-8px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-    });
+      floatingDemo.addEventListener('mouseleave', () => {
+        floatingDemo.style.transform = 'translateY(-8px) rotateX(2deg) rotateY(1deg)';
+      });
 
-    floatingDemo.addEventListener('mouseleave', () => {
-      floatingDemo.style.transform = 'translateY(-8px) rotateX(2deg) rotateY(1deg)';
-    });
+      // Mobile device tilt
+      if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', (event) => {
+          const gamma = event.gamma || 0;
+          const beta = event.beta || 0;
+          const rotateY = gamma / 8;
+          const rotateX = beta / 10;
+          floatingDemo.style.transform = `translateY(-8px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+      }
+    }
   </script>
 </body>
 </html>
