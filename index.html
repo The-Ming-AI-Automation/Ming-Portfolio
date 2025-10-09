@@ -88,29 +88,33 @@
     <p>© 2025 Ming — AI Automation Specialist</p>
   </footer>
 
-  <!-- SLIDESHOW SCRIPT -->
+  <!-- SCRIPTS -->
   <script>
+    // Slideshow for "See It in Action"
     const slides = ["vapi.png", "zapier.png", "tidio.png"];
     let index = 0;
-
     setInterval(() => {
       index = (index + 1) % slides.length;
       document.getElementById("demo-slides").src = slides[index];
     }, 4000);
-  </script>
 
-  <!-- PARALLAX + INTERACTIVE TILT SCRIPT (Desktop + Mobile) -->
-  <script>
+    // Intersection observer for fade-in
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    });
+    document.querySelectorAll("[data-animate]").forEach(el => observer.observe(el));
+
+    // Floating + Parallax 3D for fullscreen demo
     const floatingDemo = document.querySelector('.floating-3d');
     if (floatingDemo) {
-      // Desktop scroll parallax
       window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset;
         const offset = scrollTop * 0.15;
         floatingDemo.style.transform = `translateY(${-offset}px) rotateX(2deg) rotateY(1deg)`;
       });
 
-      // Desktop hover tilt
       floatingDemo.addEventListener('mousemove', (e) => {
         const rect = floatingDemo.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -126,7 +130,6 @@
         floatingDemo.style.transform = 'translateY(-8px) rotateX(2deg) rotateY(1deg)';
       });
 
-      // Mobile device tilt
       if (window.DeviceOrientationEvent) {
         window.addEventListener('deviceorientation', (event) => {
           const gamma = event.gamma || 0;
