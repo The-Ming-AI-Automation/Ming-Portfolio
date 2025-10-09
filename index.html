@@ -40,7 +40,7 @@
     </div>
   </header>
 
-  <!-- FULL-WIDTH LIVE DEMO -->
+  <!-- FULL-SCREEN LIVE DEMO -->
   <section id="demo-preview" class="demo-fullscreen">
     <div class="demo-container floating-3d" data-parallax>
       <iframe 
@@ -50,6 +50,23 @@
         referrerpolicy="no-referrer">
       </iframe>
       <div class="overlay"></div>
+    </div>
+  </section>
+
+  <!-- SEE IT IN ACTION SECTION -->
+  <section class="demo-section" id="demo">
+    <div class="demo-content">
+      <div class="laptop-3d" data-animate>
+        <div class="screen">
+          <div class="reflection"></div>
+          <img id="demo-slides" src="vapi.png" alt="Automation Demo Preview" />
+        </div>
+      </div>
+      <div class="demo-text">
+        <h2>See It in Action</h2>
+        <p>Experience how <strong>Vapi</strong>, <strong>Zapier</strong>, and <strong>Tidio</strong> work together — creating a seamless customer flow from inquiry to booking.</p>
+        <a href="https://the-ming-ai-automation.github.io/Restaurant-Demo/" target="_blank" class="cta-btn">View Live Demo</a>
+      </div>
     </div>
   </section>
 
@@ -70,6 +87,17 @@
   <footer>
     <p>© 2025 Ming — AI Automation Specialist</p>
   </footer>
+
+  <!-- SLIDESHOW SCRIPT -->
+  <script>
+    const slides = ["vapi.png", "zapier.png", "tidio.png"];
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      document.getElementById("demo-slides").src = slides[index];
+    }, 4000);
+  </script>
 
   <!-- PARALLAX + INTERACTIVE TILT SCRIPT (Desktop + Mobile) -->
   <script>
