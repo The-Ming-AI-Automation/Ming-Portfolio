@@ -99,35 +99,6 @@ a {
   background: radial-gradient(circle at top, #10121a, #0b0c10 70%);
 }
 
-/* Hero Overlay Background */
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.hero-background iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  filter: brightness(0.35) blur(1px);
-  pointer-events: none; /* keeps text/buttons clickable */
-}
-
-.hero-background .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(11,12,16,0.6), rgba(11,12,16,0.6));
-  z-index: 1;
-}
-
 .hero-content {
   position: relative;
   z-index: 2;
@@ -145,102 +116,80 @@ a {
   font-size: 1.1rem;
 }
 
-/* DEMO SECTION */
-.demo-section {
-  background: #0d0f15;
-  padding: 100px 10%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-}
-
-.demo-content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 60px;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 3D LAPTOP MOCKUP */
-.laptop-3d {
-  position: relative;
-  width: 400px;
-  height: 250px;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-  transform: rotateX(5deg) rotateY(-8deg);
-  transition: transform 1s ease;
-  animation: float 5s ease-in-out infinite;
-}
-
-.laptop-3d.visible {
-  transform: rotateX(0deg) rotateY(0deg);
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotateX(5deg) rotateY(-8deg); }
-  50% { transform: translateY(-10px) rotateX(5deg) rotateY(-8deg); }
-}
-
-.screen {
+/* FULL-SCREEN LIVE DEMO */
+.demo-fullscreen {
   position: relative;
   width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  background: #111;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0b0c10;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  border: 2px solid #00ffd5;
 }
 
-/* Glass reflection + subtle neon glow trail */
-.reflection {
+.demo-container {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 80vh;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s ease;
+}
+
+.demo-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: brightness(0.85);
+}
+
+.demo-container .overlay {
   position: absolute;
   top: 0;
-  left: -60%;
-  width: 50%;
+  left: 0;
+  width: 100%;
   height: 100%;
+  background: linear-gradient(rgba(11,12,16,0.15), rgba(11,12,16,0.15));
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+/* FLOATING + 3D SHIMMER */
+.floating-3d {
+  animation: floatDemo 6s ease-in-out infinite;
+}
+
+@keyframes floatDemo {
+  0%, 100% { transform: translateY(0px) rotateX(1deg) rotateY(-1deg); }
+  50% { transform: translateY(-8px) rotateX(2deg) rotateY(1deg); }
+}
+
+.floating-3d::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
   background: linear-gradient(
     120deg,
-    rgba(255, 255, 255, 0.15),
-    rgba(0, 255, 213, 0.3),
-    rgba(255, 255, 255, 0)
+    rgba(255,255,255,0.05),
+    rgba(0,255,213,0.15),
+    rgba(255,255,255,0.05)
   );
   transform: skewX(-20deg);
-  filter: drop-shadow(0 0 10px rgba(0, 255, 213, 0.5));
-  animation: shimmerGlow 4s linear infinite;
+  animation: shimmerDemo 4s linear infinite;
   pointer-events: none;
 }
 
-@keyframes shimmerGlow {
-  0% { left: -60%; opacity: 0.8; }
-  50% { left: 120%; opacity: 1; }
-  100% { left: 120%; opacity: 0.8; }
-}
-
-.screen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: fadeSlide 1s ease;
-}
-
-@keyframes fadeSlide {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.demo-text {
-  max-width: 420px;
-}
-
-.demo-text h2 {
-  font-size: 1.8rem;
-  color: #00ffd5;
+@keyframes shimmerDemo {
+  0% { transform: translateX(-100%) skewX(-20deg); }
+  100% { transform: translateX(100%) skewX(-20deg); }
 }
 
 /* PROJECTS + CONTACT + FOOTER */
