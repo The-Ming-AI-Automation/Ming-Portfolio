@@ -35,73 +35,85 @@
     <div class="hero-content">
       <h1>AI Automation for Small Businesses</h1>
       <p>Integrations. Demos. Workflow engineering — all in one seamless flow.</p>
-     <a href="https://the-ming-ai-automation.github.io/Restaurant-Demo/" target="_blank" class="cta-btn">View Live Demo</a>
-      <a href="#contact" class="cta-btn">Contact Me</a>
+      <a href="https://the-ming-ai-automation.github.io/Restaurant-Demo/" target="_blank" class="cta-btn">View Live Demo</a>
+      <a href="#projects" class="cta-btn">Explore Projects</a>
     </div>
   </header>
 
-  <!-- FULLSCREEN LIVE DEMO -->
-  <section class="demo-fullscreen">
-    <iframe src="https://the-ming-ai-automation.github.io/Restaurant-Demo/" title="Restaurant Demo Live Preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
-    <div class="overlay"></div>
-  </section>
+  <!-- 3 CASE STUDIES -->
+  <section id="projects" class="projects">
+    <h2>Automation Case Studies</h2>
+    <p>Explore real examples of AI-powered automation in different industries.</p>
 
-  <!-- DEMO SECTION: 3D Laptop / See It in Action -->
-  <section class="demo-section" id="demo">
-    <div class="demo-content">
-      <div class="laptop-3d floating-3d" data-animate>
-        <div class="screen">
-          <div class="reflection"></div>
-          <img id="demo-slides" src="vapi.png" alt="Automation Demo Preview" />
+    <div class="case-studies">
+
+      <!-- REPAIR SHOP / GYM -->
+      <div class="case" data-animate>
+        <img src="repairshop.jpg" alt="Repair Shop Automation" class="case-img" />
+        <div class="case-info">
+          <h3>Repair Shop / Gym Automation</h3>
+          <p>Automated appointment booking, SMS reminders, and feedback collection using <strong>GoHighLevel</strong> + <strong>Zapier</strong>. When a client books online, workflows trigger appointment confirmation, reminders, and follow-ups — keeping operations smooth without manual tracking.</p>
+          <div class="tools">Tools: GoHighLevel • Zapier • Google Sheets</div>
+          <div class="case-links">
+            <a href="#" class="cta-btn">View Live Demo</a>
+            <a href="#" class="cta-btn">View GitHub Source</a>
+          </div>
         </div>
       </div>
-      <div class="demo-text">
-        <h2>See It in Action</h2>
-        <p>Experience how <strong>Vapi</strong>, <strong>Zapier</strong>, and <strong>Tidio</strong> work together — creating a seamless customer flow from inquiry to booking.</p>
-        <a href="https://the-ming-ai-automation.github.io/Restaurant-Demo/" target="_blank" class="cta-btn">View Live Demo</a>
+
+      <!-- E-COMMERCE -->
+      <div class="case" data-animate>
+        <img src="ecommerce.jpg" alt="E-Commerce Automation" class="case-img" />
+        <div class="case-info">
+          <h3>E-Commerce Automation</h3>
+          <p>Abandoned cart recovery with AI email follow-ups and personalized product recommendations. Integrated via <strong>GoHighLevel</strong> + <strong>Vapi</strong>, ensuring every potential sale gets re-engaged automatically through conversational AI and dynamic coupons.</p>
+          <div class="tools">Tools: GoHighLevel • Vapi • Gmail API</div>
+          <div class="case-links">
+            <a href="#" class="cta-btn">View Live Demo</a>
+            <a href="#" class="cta-btn">View GitHub Source</a>
+          </div>
+        </div>
       </div>
+
+      <!-- REAL ESTATE -->
+      <div class="case" data-animate>
+        <img src="realestate.jpg" alt="Real Estate AI Automation" class="case-img" />
+        <div class="case-info">
+          <h3>Real Estate Lead Qualification</h3>
+          <p>AI chatbot qualifies leads directly through <strong>GoHighLevel</strong> landing page and syncs data to <strong>Google Sheets</strong> and <strong>Notion</strong>. New leads automatically get scheduled into agent calendars with pre-generated meeting summaries via OpenAI.</p>
+          <div class="tools">Tools: GoHighLevel • Notion • OpenAI API</div>
+          <div class="case-links">
+            <a href="#" class="cta-btn">View Live Demo</a>
+            <a href="#" class="cta-btn">View GitHub Source</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
-    <p>More live demos and case studies coming soon.</p>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Let's build your automation system — together.</p>
+
+    <div class="form-frame">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScV1vVE0ihH2Rw2RspwTVDhiZX8r9PoK6lIW67gLtrbQWcFmw/viewform?embedded=true" 
+              title="Contact Form – Ming AI Automation" 
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0" 
+              loading="lazy"></iframe>
+    </div>
+
+    <a href="mailto:mingautomation@gmail.com" class="cta-btn">Get in Touch</a>
   </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>Contact</h2>
-  <p>Let's build your automation system — together.</p>
-
-  <!-- Google Form Embed -->
-  <div class="form-frame">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScV1vVE0ihH2Rw2RspwTVDhiZX8r9PoK6lIW67gLtrbQWcFmw/viewform?embedded=true" 
-            title="Contact Form – Ming AI Automation" 
-            frameborder="0" 
-            marginheight="0" 
-            marginwidth="0" 
-            loading="lazy"></iframe>
-  </div>
-
-  <a href="mailto:mingautomation@gmail.com" class="cta-btn">Get in Touch</a>
-</section>
-
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 Ming — AI Automation Specialist</p>
   </footer>
 
-  <!-- SLIDESHOW SCRIPT -->
   <script>
-    const slides = ["vapi.png", "zapier.png", "tidio.png"];
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % slides.length;
-      document.getElementById("demo-slides").src = slides[index];
-    }, 4000);
-
-    // Intersection observer for animations
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add("visible");
@@ -110,42 +122,5 @@
     document.querySelectorAll("[data-animate]").forEach(el => observer.observe(el));
   </script>
 
-  <!-- PARALLAX + INTERACTIVE TILT SCRIPT -->
-  <script>
-    const floatingDemo = document.querySelector('.floating-3d');
-
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset;
-      const offset = scrollTop * 0.15;
-      floatingDemo.style.transform = `translateY(${-offset}px) rotateX(2deg) rotateY(1deg)`;
-    });
-
-    floatingDemo.addEventListener('mousemove', (e) => {
-      const rect = floatingDemo.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * 5;
-      const rotateY = ((x - centerX) / centerX) * 5;
-      floatingDemo.style.transform = `translateY(-8px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    floatingDemo.addEventListener('mouseleave', () => {
-      floatingDemo.style.transform = 'translateY(-8px) rotateX(2deg) rotateY(1deg)';
-    });
-
-    if (window.DeviceOrientationEvent) {
-      window.addEventListener('deviceorientation', (event) => {
-        const gamma = event.gamma || 0;
-        const beta = event.beta || 0;
-        const rotateY = gamma / 8;
-        const rotateX = beta / 10;
-        if (floatingDemo) {
-          floatingDemo.style.transform = `translateY(-8px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-        }
-      });
-    }
-  </script>
 </body>
 </html>
