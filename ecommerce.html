@@ -1,95 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FitCommerce — E-Commerce Automation | Ming</title>
-  <meta name="description" content="E-commerce demo — cart recovery, AI follow-ups and personalized recommendations." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce Automation | Ming AI Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-style.css">
 </head>
+
 <body class="ecom-theme">
   <nav class="sub-nav">
-    <a class="sub-back" href="index.html">← Back to Ming Portfolio</a>
-    <div class="sub-brand">FitCommerce<span class="dot">.</span></div>
+    <a href="index.html" class="sub-back">← Back to Portfolio</a>
+    <span class="sub-brand">E-Commerce AI Automation</span>
   </nav>
 
-  <header class="page-hero">
+  <section class="page-hero">
     <div class="hero-inner">
       <div class="hero-copy">
-        <h1>FitCommerce — Recover carts & convert more customers</h1>
-        <p>AI-personalized cart recovery emails, product recommendations, and automated receipts.</p>
+        <h1>Automated Store System</h1>
+        <p>Handle customer orders, emails, and product updates automatically using AI & n8n.</p>
         <div class="hero-ctas">
-          <a href="#automation" class="btn accent">See Automation</a>
-          <a href="#quote" class="btn ghost">Request Automation Quote</a>
+          <a href="#form" class="btn accent">Request Automation Quote</a>
+          <a href="#" class="btn ghost">View Live Demo</a>
         </div>
       </div>
       <div class="hero-media">
-        <img src="ecommerce-banner.jpg" alt="Ecommerce" class="hero-banner">
+        <img src="ecommerce.jpg" class="hero-banner" alt="E-Commerce automation preview">
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="features">
-      <h2>What this demo shows</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Abandoned Cart Recovery</h3>
-          <p>Trigger email sequence with AI-tailored subject and discount offer.</p>
-        </article>
-        <article class="card">
-          <h3>Personalized Recommendations</h3>
-          <p>Product suggestions based on purchase intent and browsing signals.</p>
-        </article>
-        <article class="card">
-          <h3>Post-Purchase Flow</h3>
-          <p>Order confirmation, delivery status updates, and review requests automated end-to-end.</p>
-        </article>
-      </div>
-    </section>
+  <section class="features">
+    <h2>Key Automations</h2>
+    <div class="cards">
+      <div class="card"><h3>🧾 Order Confirmation</h3><p>Instantly email receipts and updates using AI templates.</p></div>
+      <div class="card"><h3>🛍 Abandoned Cart Recovery</h3><p>Auto-remind customers via email or WhatsApp.</p></div>
+      <div class="card"><h3>⭐ Review Requests</h3><p>Automated messages after delivery to collect reviews.</p></div>
+    </div>
+  </section>
 
-    <section id="automation" class="automation">
-      <h2>Automation in action</h2>
-      <div class="flow">
-        <ol>
-          <li>Customer abandons cart → webhook fires to n8n.</li>
-          <li>n8n calls Vapi/OpenAI to craft a personalized follow-up email.</li>
-          <li>Email sent via Gmail API with dynamic coupon link; action logged in Google Sheet.</li>
-        </ol>
-        <img src="automation-preview.png" alt="Automation preview" class="preview">
-      </div>
-    </section>
+  <section class="automation">
+    <h2>Automation Flow</h2>
+    <div class="flow">
+      <img src="ecommerce-flow.jpg" class="preview" alt="Automation flow diagram">
+      <ol>
+        <li>Shopify/Webflow form submits order</li>
+        <li>n8n triggers OpenAI summary</li>
+        <li>Email & WhatsApp notifications sent</li>
+        <li>Review request scheduled after delivery</li>
+      </ol>
+    </div>
+  </section>
 
-    <section id="quote" class="contact-quote">
-      <h2>Request Automation Quote</h2>
-      <p>Use the shared quote form — submission will be captured by the automation demo.</p>
+  <section id="form" class="contact-quote">
+    <h2>Get a Quote</h2>
+    <div class="form-holder">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHkTJU0GfV0I3Rh3R90-xKTqZ1AnKjfErBugtaMwRKl07TwA/viewform?embedded=true"></iframe>
+    </div>
+  </section>
 
-      <!-- USER PROVIDED GOOGLE FORM IFRAME -->
-      <div class="form-holder">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHkTJU0GfV0I3Rh3R90-xKTqZ1AnKjfErBugtaMwRKl07TwA/viewform?embedded=true"
-                width="640" height="1567" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      </div>
-
-      <p class="note">Submissions are recorded, an automated summary email is sent, and the lead is logged for follow-up.</p>
-    </section>
-  </main>
-
-  <footer class="demo-footer">
-    <small>FitCommerce • Demo site — built by Ming • <a href="index.html">Back to portfolio</a></small>
-  </footer>
-
-  <script>
-    const obs2 = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, {threshold: 0.15});
-    document.querySelectorAll('section, .card, .hero-inner').forEach(el => obs2.observe(el));
-    const heroImg2 = document.querySelector('.hero-banner');
-    window.addEventListener('scroll', () => {
-      if (!heroImg2) return;
-      const offset = window.pageYOffset * 0.12;
-      heroImg2.style.transform = `translateY(${offset}px)`;
-    });
-  </script>
+  <footer class="demo-footer">© 2025 Ming AI Automation</footer>
 </body>
 </html>
