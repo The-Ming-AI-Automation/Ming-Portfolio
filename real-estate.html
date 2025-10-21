@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EstateSync — Real Estate Automation | Ming</title>
+  <meta name="description" content="Real estate demo — lead qualification, scheduling, and AI-generated follow-ups." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="estate-theme">
+  <nav class="sub-nav">
+    <a class="sub-back" href="index.html">← Back to Ming Portfolio</a>
+    <div class="sub-brand">EstateSync<span class="dot">.</span></div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1>EstateSync — Turn inquiries into viewings faster</h1>
+        <p>AI qualify leads, schedule showings and send personalized area guides automatically.</p>
+        <div class="hero-ctas">
+          <a href="#automation" class="btn accent">See Automation</a>
+          <a href="#quote" class="btn ghost">Request Automation Quote</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="real-estate-banner.jpg" alt="Real estate" class="hero-banner">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="features">
+      <h2>What EstateSync does</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Instant Qualification</h3>
+          <p>AI reads inquiry and categorizes lead quality — high-quality leads go straight to agent calendar.</p>
+        </article>
+        <article class="card">
+          <h3>Auto-Scheduling</h3>
+          <p>Selected times become Google Calendar events and agents receive summarized briefs.</p>
+        </article>
+        <article class="card">
+          <h3>Smart Follow-ups</h3>
+          <p>After showings, AI-generated follow-up messages nudge for feedback and reviews.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="automation" class="automation">
+      <h2>Automation in action</h2>
+      <div class="flow">
+        <ol>
+          <li>Visitor fills the inquiry form → n8n receives the response.</li>
+          <li>OpenAI creates a candidate summary and recommended listings.</li>
+          <li>Agent receives an email with summarized context and scheduling options.</li>
+        </ol>
+        <img src="automation-preview.png" alt="Automation preview" class="preview">
+      </div>
+    </section>
+
+    <section id="quote" class="contact-quote">
+      <h2>Request Automation Quote</h2>
+      <p>Submit via the shared quote form — this demo will capture the lead for automated processing.</p>
+
+      <!-- USER PROVIDED GOOGLE FORM IFRAME -->
+      <div class="form-holder">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHkTJU0GfV0I3Rh3R90-xKTqZ1AnKjfErBugtaMwRKl07TwA/viewform?embedded=true"
+                width="640" height="1567" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+
+      <p class="note">Responses will be recorded and (when connected) will trigger an AI summary email back to the lead.</p>
+    </section>
+  </main>
+
+  <footer class="demo-footer">
+    <small>EstateSync • Demo site — built by Ming • <a href="index.html">Back to portfolio</a></small>
+  </footer>
+
+  <script>
+    const obs3 = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.15});
+    document.querySelectorAll('section, .card, .hero-inner').forEach(el => obs3.observe(el));
+    const heroImg3 = document.querySelector('.hero-banner');
+    window.addEventListener('scroll', () => {
+      if (!heroImg3) return;
+      const offset = window.pageYOffset * 0.14;
+      heroImg3.style.transform = `translateY(${offset}px)`;
+    });
+  </script>
+</body>
+</html>
