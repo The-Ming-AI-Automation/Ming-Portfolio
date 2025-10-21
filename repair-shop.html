@@ -1,101 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>RepairPro — Automated Repair Shop | Ming</title>
-  <meta name="description" content="RepairPro demo — appointment booking, instant quotes, and follow ups automated." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repair Shop Automation | Ming AI Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-style.css">
 </head>
+
 <body class="repair-theme">
   <nav class="sub-nav">
-    <a class="sub-back" href="index.html">← Back to Ming Portfolio</a>
-    <div class="sub-brand">RepairPro<span class="dot">.</span></div>
+    <a href="index.html" class="sub-back">← Back to Portfolio</a>
+    <span class="sub-brand">Repair Shop AI Automation</span>
   </nav>
 
-  <header class="page-hero">
+  <section class="page-hero">
     <div class="hero-inner">
       <div class="hero-copy">
-        <h1>RepairPro — Fast, reliable device repair automation</h1>
-        <p>Auto booking, instant quotes and follow-up flows so your workshop runs without the admin drag.</p>
+        <h1>Smart Repair Shop System</h1>
+        <p>Automate appointment bookings, job tracking, and WhatsApp follow-ups using AI and n8n workflows.</p>
         <div class="hero-ctas">
-          <a href="#automation" class="btn accent">See Automation</a>
-          <a href="#quote" class="btn ghost">Request Automation Quote</a>
+          <a href="#form" class="btn accent">Request Automation Quote</a>
+          <a href="#" class="btn ghost">View Live Demo</a>
         </div>
       </div>
       <div class="hero-media">
-        <img src="repair-shop-banner.jpg" alt="Repair shop" class="hero-banner">
+        <img src="repair-shop.jpg" class="hero-banner" alt="Repair shop automation preview">
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="features">
-      <h2>Core features</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Quick Bookings</h3>
-          <p>Customers book online — appointment created in Google Calendar automatically.</p>
-        </article>
-        <article class="card">
-          <h3>Instant Quotes</h3>
-          <p>Submit device issue → AI estimates next steps; customers receive immediate estimate email.</p>
-        </article>
-        <article class="card">
-          <h3>Post-Service Feedback</h3>
-          <p>After completion, system triggers an AI-summarized survey and review prompt if satisfaction is high.</p>
-        </article>
-      </div>
-    </section>
+  <section class="features">
+    <h2>Core Automations</h2>
+    <div class="cards">
+      <div class="card"><h3>📅 Booking Sync</h3><p>New repair requests trigger automatic calendar scheduling.</p></div>
+      <div class="card"><h3>📨 WhatsApp Follow-ups</h3><p>AI drafts thank-you and reminder messages automatically.</p></div>
+      <div class="card"><h3>📊 Job Tracking</h3><p>Automated Google Sheet entries and completion updates.</p></div>
+    </div>
+  </section>
 
-    <section id="automation" class="automation">
-      <h2>Automation in action</h2>
-      <div class="flow">
-        <ol>
-          <li>Customer fills the booking form (Google Form).</li>
-          <li>n8n picks up new response → creates Google Calendar event + adds row to Google Sheet.</li>
-          <li>Vapi/OpenAI generates confirmation email and estimated quote → sent via Gmail.</li>
-          <li>Reminder sent 24hrs before; after service, feedback captured and processed.</li>
-        </ol>
-        <img src="automation-preview.png" alt="Automation preview" class="preview">
-      </div>
-    </section>
+  <section class="automation">
+    <h2>Automation Flow</h2>
+    <div class="flow">
+      <img src="repair-flow.jpg" class="preview" alt="Automation flow diagram">
+      <ol>
+        <li>Customer fills Google Form</li>
+        <li>n8n adds record to Sheets</li>
+        <li>OpenAI summarizes and categorizes issue</li>
+        <li>System sends WhatsApp confirmation</li>
+      </ol>
+    </div>
+  </section>
 
-    <section id="quote" class="contact-quote">
-      <h2>Request Automation Quote</h2>
-      <p>One shared form for all demos — submit a request and the demo workflows will process it automatically.</p>
+  <section id="form" class="contact-quote">
+    <h2>Get a Quote</h2>
+    <div class="form-holder">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHkTJU0GfV0I3Rh3R90-xKTqZ1AnKjfErBugtaMwRKl07TwA/viewform?embedded=true"></iframe>
+    </div>
+  </section>
 
-      <!-- USER PROVIDED GOOGLE FORM IFRAME -->
-      <div class="form-holder">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHkTJU0GfV0I3Rh3R90-xKTqZ1AnKjfErBugtaMwRKl07TwA/viewform?embedded=true"
-                width="640" height="1567" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      </div>
-
-      <p class="note">After submission, automation will add the lead to Google Sheets and send an actionable email summary (n8n ready).</p>
-    </section>
-  </main>
-
-  <footer class="demo-footer">
-    <small>RepairPro • Demo site — built by Ming • <a href="index.html">Back to portfolio</a></small>
-  </footer>
-
-  <script>
-    // Observe sections for fade-in
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
-    }, {threshold: 0.15});
-    document.querySelectorAll('section, .card, .hero-inner').forEach(el => obs.observe(el));
-
-    // subtle parallax on hero image
-    const heroImg = document.querySelector('.hero-banner');
-    window.addEventListener('scroll', () => {
-      if (!heroImg) return;
-      const offset = window.pageYOffset * 0.15;
-      heroImg.style.transform = `translateY(${offset}px)`;
-    });
-  </script>
+  <footer class="demo-footer">© 2025 Ming AI Automation</footer>
 </body>
 </html>
