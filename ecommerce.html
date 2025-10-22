@@ -6,6 +6,44 @@
   <title>E-Commerce Automation | Ming AI Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="demo-style.css">
+  <style>
+    /* Video demo section */
+    .demo-video {
+      padding: 40px 6%;
+      text-align: center;
+      position: relative;
+    }
+    .demo-video h2 {
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .video-container {
+      display: inline-block;
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Floating effect */
+    .video-container video {
+      animation: floatVideo 6s ease-in-out infinite;
+    }
+    @keyframes floatVideo {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .video-container { max-width: 100%; }
+    }
+  </style>
 </head>
 
 <body class="ecom-theme">
@@ -49,6 +87,17 @@
         <li>Email & WhatsApp notifications sent</li>
         <li>Review request scheduled after delivery</li>
       </ol>
+    </div>
+  </section>
+
+  <!-- Video Demo Section -->
+  <section class="demo-video">
+    <h2>Watch the Automation in Action</h2>
+    <div class="video-container">
+      <video autoplay loop muted playsinline>
+        <source src="automation-demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </section>
 
