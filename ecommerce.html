@@ -6,42 +6,234 @@
   <title>E-Commerce Automation | Ming AI Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="demo-style.css">
+
   <style>
+    /* === GLOBAL STYLES === */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: var(--bg, #0d1117);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Sub-nav */
+    .sub-nav {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 6%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .sub-nav a {
+      color: #58a6ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .sub-brand {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* Hero Section */
+    .page-hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 80px 6%;
+      background: linear-gradient(135deg, #0a0f1f, #121a30);
+    }
+    .hero-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      width: 100%;
+    }
+    .hero-copy {
+      flex: 1 1 420px;
+      padding-right: 40px;
+    }
+    .hero-copy h1 {
+      font-size: 2.8rem;
+      color: #58a6ff;
+      margin-bottom: 16px;
+    }
+    .hero-copy p {
+      font-size: 1.1rem;
+      color: #c9d1d9;
+      margin-bottom: 24px;
+    }
+    .hero-ctas .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin-right: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn.accent {
+      background: #58a6ff;
+      color: #0d1117;
+    }
+    .btn.accent:hover {
+      background: #79c0ff;
+    }
+    .btn.ghost {
+      border: 2px solid #58a6ff;
+      color: #58a6ff;
+    }
+    .btn.ghost:hover {
+      background: #58a6ff;
+      color: #0d1117;
+    }
+    .hero-media img {
+      width: 420px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    /* Features */
+    .features {
+      text-align: center;
+      padding: 100px 6%;
+    }
+    .features h2 {
+      color: #58a6ff;
+      margin-bottom: 40px;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+    .card {
+      background: #161b22;
+      padding: 24px;
+      border-radius: 12px;
+      width: 300px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Automation flow */
+    .automation {
+      padding: 100px 6%;
+      text-align: center;
+    }
+    .automation h2 {
+      color: #58a6ff;
+      margin-bottom: 24px;
+    }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+    .flow img {
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    .flow ol {
+      max-width: 400px;
+      text-align: left;
+      color: #c9d1d9;
+      line-height: 1.8;
+    }
+
     /* Video demo section */
     .demo-video {
-      padding: 40px 6%;
+      padding: 100px 6%;
       text-align: center;
-      position: relative;
+      background: linear-gradient(145deg, #0b132b, #1c2541);
     }
     .demo-video h2 {
-      color: var(--accent);
-      margin-bottom: 20px;
+      color: #58a6ff;
+      margin-bottom: 30px;
     }
     .video-container {
+      position: relative;
       display: inline-block;
       width: 100%;
       max-width: 800px;
-      position: relative;
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-    }
-    .video-container video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    /* Floating effect */
-    .video-container video {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
       animation: floatVideo 6s ease-in-out infinite;
     }
     @keyframes floatVideo {
-      0%, 100% { transform: translateY(0px); }
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
-    /* Responsive */
+    .video-container iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+
+    /* Quote form */
+    .contact-quote {
+      padding: 100px 6%;
+      text-align: center;
+      background: #0d1117;
+    }
+    .contact-quote h2 {
+      color: #58a6ff;
+      margin-bottom: 20px;
+    }
+    .form-holder iframe {
+      width: 100%;
+      max-width: 700px;
+      height: 800px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+
+    footer.demo-footer {
+      text-align: center;
+      padding: 40px;
+      color: #8b949e;
+      font-size: 0.9rem;
+      border-top: 1px solid #21262d;
+      background: #0a0f1f;
+    }
+
+    /* === Scroll Animations === */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @media (max-width: 900px) {
-      .video-container { max-width: 100%; }
+      .hero-copy { padding-right: 0; text-align: center; }
+      .hero-media img { margin-top: 24px; width: 100%; max-width: 400px; }
+      .flow { flex-direction: column; }
     }
   </style>
 </head>
@@ -52,23 +244,23 @@
     <span class="sub-brand">E-Commerce AI Automation</span>
   </nav>
 
-  <section class="page-hero">
+  <section class="page-hero fade-section">
     <div class="hero-inner">
       <div class="hero-copy">
         <h1>Automated Store System</h1>
         <p>Handle customer orders, emails, and product updates automatically using AI & n8n.</p>
         <div class="hero-ctas">
           <a href="#form" class="btn accent">Request Automation Quote</a>
-          <a href="#" class="btn ghost">View Live Demo</a>
+          <a href="#demo" class="btn ghost">View Live Demo</a>
         </div>
       </div>
       <div class="hero-media">
-        <img src="ecommerce.jpg" class="hero-banner" alt="E-Commerce automation preview">
+        <img src="ecommerce.jpg" alt="E-Commerce automation preview">
       </div>
     </div>
   </section>
 
-  <section class="features">
+  <section class="features fade-section">
     <h2>Key Automations</h2>
     <div class="cards">
       <div class="card"><h3>🧾 Order Confirmation</h3><p>Instantly email receipts and updates using AI templates.</p></div>
@@ -77,10 +269,10 @@
     </div>
   </section>
 
-  <section class="automation">
+  <section class="automation fade-section">
     <h2>Automation Flow</h2>
     <div class="flow">
-      <img src="ecommerce-flow.jpg" class="preview" alt="Automation flow diagram">
+      <img src="ecommerce-flow.jpg" alt="Automation flow diagram">
       <ol>
         <li>Shopify/Webflow form submits order</li>
         <li>n8n triggers OpenAI summary</li>
@@ -91,24 +283,44 @@
   </section>
 
   <!-- Video Demo Section -->
-  <section class="demo-video">
+  <section id="demo" class="demo-video fade-section">
     <h2>Watch the Automation in Action</h2>
     <div class="video-container">
-      <video autoplay loop muted playsinline>
-        <source src="https://drive.google.com/uc?export=download&id=1uW7W3-vYW6w0N8YajoHsE2hsEz_hhALv
-" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <iframe 
+        src="https://drive.google.com/file/d/1uW7W3-vYW6w0N8YajoHsE2hsEz_hhALv/preview" 
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+      </iframe>
     </div>
   </section>
 
-  <section id="form" class="contact-quote">
+  <section id="form" class="contact-quote fade-section">
     <h2>Get a Quote</h2>
     <div class="form-holder">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHkTJU0GfV0I3Rh3R90-xKTqZ1AnKjfErBugtaMwRKl07TwA/viewform?embedded=true"></iframe>
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSeHkTJU0GfV0I3Rh3R90-xKTqZ1AnKjfErBugtaMwRKl07TwA/viewform?embedded=true">
+      </iframe>
     </div>
   </section>
 
-  <footer class="demo-footer">© 2025 Ming AI Automation</footer>
+  <footer class="demo-footer fade-section">© 2025 Ming AI Automation</footer>
+
+  <script>
+    // === Scroll Fade Animation ===
+    const sections = document.querySelectorAll('.fade-section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
