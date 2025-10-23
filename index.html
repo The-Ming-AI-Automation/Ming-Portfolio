@@ -111,17 +111,33 @@
   </footer>
 
   <!-- ========================= -->
-  <!-- VAPI VOICE ASSISTANT -->
+  <!-- NEW VAPI VOICE ASSISTANT -->
   <!-- ========================= -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@vapi-ai/web/dist/widget.js"></script>
-
-  <vapi-assistant
-    agent-id="9cc19777-1cff-42a4-882c-694f33751c12"
+  <vapi-widget
     public-key="72168c45-2d44-43b6-a040-e387a8d4187d"
-    style="position: fixed; bottom: 20px; right: 20px;"
+    assistant-id="9cc19777-1cff-42a4-882c-694f33751c12"
+    mode="voice"
     theme="dark"
-    title="Call MingBot"
-  ></vapi-assistant>
+    base-bg-color="#000000"
+    accent-color="#14B8A6"
+    cta-button-color="#000000"
+    cta-button-text-color="#ffffff"
+    border-radius="large"
+    size="full"
+    position="bottom-right"
+    title="Speak With Mingbot"
+    start-button-text="Start"
+    end-button-text="End Call"
+    chat-first-message="Hey, How can I help you today?"
+    chat-placeholder="Type your message..."
+    voice-show-transcript="false"
+    consent-required="true"
+    consent-title="Terms and conditions"
+    consent-content="By clicking 'Agree,' and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as otherwise described in our Terms of Service."
+    consent-storage-key="vapi_widget_consent"
+  ></vapi-widget>
+
+  <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
 
   <script>
     // Smooth section animation
@@ -132,10 +148,9 @@
     });
     document.querySelectorAll("[data-animate]").forEach(el => observer.observe(el));
 
-    // Auto-scroll when voice assistant hears consultation/quote/contact
+    // Auto-scroll to contact when relevant keywords detected
     window.addEventListener("DOMContentLoaded", () => {
-      const assistant = document.querySelector("vapi-assistant");
-      assistant?.addEventListener("vapi:message", (event) => {
+      document.addEventListener("vapi:message", (event) => {
         const msg = event.detail?.message?.toLowerCase() || "";
         if (msg.includes("consultation") || msg.includes("quote") || msg.includes("contact")) {
           document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
