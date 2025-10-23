@@ -111,30 +111,20 @@
   </footer>
 
   <!-- ========================= -->
-  <!-- VAPI CALLBOT CONFIGURATION -->
+  <!-- VAPI VOICE ASSISTANT -->
   <!-- ========================= -->
-  <vapi-widget
-    assistant-id="9cc19777-1cff-42a4-882c-694f33751c12"
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@vapi-ai/web/dist/widget.js"></script>
+
+  <vapi-assistant
+    agent-id="9cc19777-1cff-42a4-882c-694f33751c12"
     public-key="72168c45-2d44-43b6-a040-e387a8d4187d"
-    start-mode="voice"
-    mic-enabled="true"
-    initial-screen="call"
+    style="position: fixed; bottom: 20px; right: 20px;"
     theme="dark"
     title="Call MingBot"
-    position="bottom-right">
-  </vapi-widget>
+  ></vapi-assistant>
 
-  <script
-    src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js"
-    async
-    type="text/javascript">
-  </script>
-
-  <!-- ========================= -->
-  <!-- ANIMATIONS + AUTOSCROLL -->
-  <!-- ========================= -->
   <script>
-    // Scroll animation for sections
+    // Smooth section animation
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add("visible");
@@ -142,15 +132,15 @@
     });
     document.querySelectorAll("[data-animate]").forEach(el => observer.observe(el));
 
-    // Auto-scroll to contact form if CallBot signals "consultation" intent
-    window.addEventListener("message", (event) => {
-      if (typeof event.data === "string" && (
-          event.data.toLowerCase().includes("consultation") ||
-          event.data.toLowerCase().includes("quote") ||
-          event.data.toLowerCase().includes("contact")
-        )) {
-        document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
-      }
+    // Auto-scroll when voice assistant hears consultation/quote/contact
+    window.addEventListener("DOMContentLoaded", () => {
+      const assistant = document.querySelector("vapi-assistant");
+      assistant?.addEventListener("vapi:message", (event) => {
+        const msg = event.detail?.message?.toLowerCase() || "";
+        if (msg.includes("consultation") || msg.includes("quote") || msg.includes("contact")) {
+          document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
+        }
+      });
     });
   </script>
 
