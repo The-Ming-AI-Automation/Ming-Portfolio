@@ -110,19 +110,11 @@
     <p>© 2025 Ming — AI Automation Specialist</p>
   </footer>
 
-  <!-- Section Animation Script -->
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    });
-    document.querySelectorAll("[data-animate]").forEach(el => observer.observe(el));
-  </script>
-
-  <!-- ✅ Vapi Voice Assistant Widget -->
-  <vapi-widget 
-    assistant-id="9cc19777-1cff-42a4-882c-694f33751c12" 
+  <!-- ========================= -->
+  <!-- VAPI WIDGET (CallBot) -->
+  <!-- ========================= -->
+  <vapi-widget
+    assistant-id="9cc19777-1cff-42a4-882c-694f33751c12"
     public-key="72168c45-2d44-43b6-a040-e387a8d4187d">
   </vapi-widget>
 
@@ -130,6 +122,30 @@
     src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js"
     async
     type="text/javascript">
+  </script>
+
+  <!-- ========================= -->
+  <!-- ANIMATIONS + AUTOSCROLL -->
+  <!-- ========================= -->
+  <script>
+    // Scroll animation for sections
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    });
+    document.querySelectorAll("[data-animate]").forEach(el => observer.observe(el));
+
+    // Auto-scroll to contact form if CallBot signals "consultation" intent
+    window.addEventListener("message", (event) => {
+      if (typeof event.data === "string" && (
+          event.data.toLowerCase().includes("consultation") ||
+          event.data.toLowerCase().includes("quote") ||
+          event.data.toLowerCase().includes("contact")
+        )) {
+        document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
+      }
+    });
   </script>
 
 </body>
